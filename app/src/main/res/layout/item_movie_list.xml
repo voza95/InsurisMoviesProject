@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.insurismoviesproject.adapter.PopularMoviesViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/moviePoster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/movieRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlCompat"
+            android:textSize="@dimen/_10sdp"
+            android:text="@{viewModel.moviesResultItem.voteAverage}"
+            android:gravity="center"
+            android:background="@color/black"
+            android:layout_alignParentEnd="true"
+            android:alpha=".75"
+            android:layout_margin="@dimen/_6sdp"
+            android:padding="@dimen/_4sdp"
+            android:textColor="@color/white"
+            app:drawableStartCompat="@drawable/ic_rated_star" />
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:alpha=".75"
+            android:layout_above="@id/movieOverview"
+            android:paddingStart="@dimen/_8sdp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="@{viewModel.moviesResultItem.title}"
+            android:textSize="@dimen/_14sdp"
+            android:paddingEnd="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/movieOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:alpha=".75"
+            android:textColor="@color/white"
+            android:text="@{viewModel.moviesResultItem.overview}"
+            android:paddingBottom="@dimen/_8sdp"
+            android:maxLines="3"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:textSize="@dimen/_8sdp"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</layout>
